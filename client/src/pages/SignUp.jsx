@@ -1,12 +1,12 @@
-import { data } from 'autoprefixer';
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function SignUp() {
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(false);
   const [respMessage, setRespMessage] = useState();
-  const [isResp, setIsResp] = useState(false)
+  const [isResp, setIsResp] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setIsResp(false)
@@ -31,9 +31,12 @@ function SignUp() {
     setRespMessage(data?.message)
     if (data?.success === false) {
       setRespMessage(data?.error);
-    } 
+      setLoading(false);
+      return;
+    }
     setLoading(false);
-    setFormData({})
+    setFormData({});
+    navigate('/sign-in')
   }
   return (
     <div className='max-w-md mx-auto p-3'>
