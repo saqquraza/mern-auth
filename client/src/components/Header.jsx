@@ -15,10 +15,10 @@ function Header() {
                         <li>About</li>
                     </Link>
                     <Link to={'/sign-in'}>
-                        <li>Sign In</li>
+                        <li>SignIn</li>
                     </Link>
                     <Link to={'/sign-up'}>
-                        <li>Sign Up</li>
+                        <li>SignUp</li>
                     </Link>
                 </ul>
             </div>
